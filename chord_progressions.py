@@ -7,10 +7,19 @@ common_prgs = [[1,5,6,4], [6,4,1,5], [1,6,4,5], [1,4,5,4], [2,5,1,6]]
 
 whole = 2
 half = 1
+# major scale pattern derived from Ionian mode
 major_scale = [0, whole, whole, half, whole, whole, whole, half]
+# minor scale pattern derived from Aeolian mode
 minor_scale = [0, whole, half, whole, whole, half, whole, whole]
+# Modes - each mode has a distinct pattern of intervals, which gives it a unique sound
+dorian_mode = [0, whole, half, whole, whole, whole, half, whole]
+phrygian_mode = [0, half, whole, whole, whole, half, whole, whole]
+lydian_mode = [0, whole, whole, whole, half, whole, whole, half] 
+mixolydian_mode = [0, whole, whole, half, whole, whole, half, whole] 
+locrian_mode = [0, half, whole, whole, half, whole, whole, whole]
 
 key = input("What key are we in? ") 
+mode = input("Which mode are we in? ") 
 
 # build scale based on key
 scale = []
@@ -26,11 +35,27 @@ for i in range(7):
         prev_note_pos=root
     else: 
         # determine whole step or half-step from previous
-        step = major_scale[i]
-        new_pos_unadjusted = prev_note_pos+step
-        new_note = notes[new_pos_unadjusted % 12]
-        prev_note_pos = prev_note_pos + step
-        scale.append(new_note)
+        if int(mode) == 1:
+            new_pos_unadjusted = prev_note_pos+step
+            new_note = notes[new_pos_unadjusted % 12]
+            prev_note_pos = prev_note_pos + step
+            scale.append(new_note)
+            step = minor_scale[i]
+            step = major_scale[i]
+        elif int(mode) == 2:
+            # TODO: move this code into a function
+            new_pos_unadjusted = prev_note_pos+step
+            new_note = notes[new_pos_unadjusted % 12]
+            prev_note_pos = prev_note_pos + step
+            scale.append(new_note)
+        elif int(mode) == 3:
+            step = dorian_mode[i]
+            new_pos_unadjusted = prev_note_pos+step
+            new_note = notes[new_pos_unadjusted % 12]
+            prev_note_pos = prev_note_pos + step
+            scale.append(new_note)
+# do this in a better way
+scale.append(key)
 print("KEY OF " + key + " SCALE: ")
 print(scale)
 print()
