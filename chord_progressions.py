@@ -23,7 +23,7 @@ mode = input("Which mode are we in? ")
 
 # build scale based on key
 scale = []
-
+step = -1
 # add note to major scale one at a time
 prev_note_pos = -1
 for i in range(7):
@@ -36,13 +36,13 @@ for i in range(7):
     else: 
         # determine whole step or half-step from previous
         if int(mode) == 1:
+            step = major_scale[i]
             new_pos_unadjusted = prev_note_pos+step
             new_note = notes[new_pos_unadjusted % 12]
             prev_note_pos = prev_note_pos + step
             scale.append(new_note)
-            step = minor_scale[i]
-            step = major_scale[i]
         elif int(mode) == 2:
+            step = minor_scale[i]
             # TODO: move this code into a function
             new_pos_unadjusted = prev_note_pos+step
             new_note = notes[new_pos_unadjusted % 12]
