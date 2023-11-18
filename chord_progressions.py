@@ -36,6 +36,7 @@ for i in range(7):
     else: 
         # determine whole step or half-step from previous
         if int(mode) == 1:
+            # TODO: refactor into function, pass mode type as parameter
             step = major_scale[i]
             new_pos_unadjusted = prev_note_pos+step
             new_note = notes[new_pos_unadjusted % 12]
