@@ -1,3 +1,5 @@
+import build_scale
+
 # A program to find chord progressions for given key
 
 notes = ["C", "C#/D♭", "D", "D#/E♭", "E", "F", "F#/G♭", "G", "G#/A♭", "A", "A#/B♭", "B"]
