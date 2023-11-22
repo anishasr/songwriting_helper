@@ -18,6 +18,7 @@ lydian_mode = [0, whole, whole, whole, half, whole, whole, half]
 mixolydian_mode = [0, whole, whole, half, whole, whole, half, whole] 
 locrian_mode = [0, half, whole, whole, half, whole, whole, whole]
 
+# TODO - refactor to wrap around
 def find_chords(key,mode):
     scale = find_scale(key,mode)
     interval = 2

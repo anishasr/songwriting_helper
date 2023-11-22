@@ -8,3 +8,9 @@ mode = input("Which mode are we in? ")
 # get chords of parallel minor key
 build_scale.find_chords(key,2)
 
+scale = build_scale.find_scale(key,mode)
+root_position = 0
+
+# get chords of relative minor key
+build_scale.find_chords(scale[root_position+5],2)
+
