@@ -18,7 +18,22 @@ lydian_mode = [0, whole, whole, whole, half, whole, whole, half]
 mixolydian_mode = [0, whole, whole, half, whole, whole, half, whole] 
 locrian_mode = [0, half, whole, whole, half, whole, whole, whole]
 
-def build_scale(key,mode):
+def find_chords(key,mode):
+    scale = find_scale(key,mode)
+    interval = 2
+    # startingat 0 due to index of list
+    note_degree = 0
+    root = -1
+    third = -1
+    fifth = -1
+    while fifth < (len(scale)-1):
+        root+=1
+        third = root + interval
+        fifth = third + interval
+        print(scale[root] + " " + scale[third] + " " + scale[fifth] + "\n")
+
+
+def find_scale(key,mode):
     # build scale based on key
     scale = []
     step = -1
@@ -58,5 +73,6 @@ def build_scale(key,mode):
     print("KEY OF " + key + " SCALE: ")
     print(scale)
     print()
+    return scale
 
 
