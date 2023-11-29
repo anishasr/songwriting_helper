@@ -1,4 +1,4 @@
-import build_scale
+import music_theory.build_scale as build_scale
 
 # Find chords given scale
 

@@ -1,4 +1,4 @@
-import build_scale
+from music_theory import build_scale as build_scale
 
 # output options for verse chord progressions
 

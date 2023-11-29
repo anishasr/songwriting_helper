@@ -1,5 +1,5 @@
-import build_scale
-import borrowed_chords
+from music_theory import build_scale as build_scale
+from music_theory import borrowed_chords as borrowed_chords
 
 def build_chorus(key,mode):
     common_prgs = [[1,5,6,4], [6,4,1,5], [1,6,4,5], [1,4,5,4], [2,5,1,6]]
